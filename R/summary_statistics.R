@@ -376,7 +376,7 @@ percent_with_confints_select_multiple_groups <-
 
 
     result_hg_format <- lapply(names(choices), function(x) {
-      design$variables[[x]] <- factor(as.logical(as.numeric(design$variables[[x]])),
+      design$variables[[x]] <- factor(design$variables[[x]],
                                       levels = c("TRUE", "FALSE"))
       srvyr_design <- srvyr::as_survey_design(design)
       srvyr_design_grouped <- srvyr::group_by_(srvyr_design,
