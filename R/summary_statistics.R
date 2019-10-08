@@ -126,7 +126,7 @@ percent_with_confints_select_multiple <- function(dependent.var,
               results_srvyr <- lapply(names(choices), function(x) {
 
                 # sometimes they're 1/0, T/F, in various types. we make it numeric -> logical -> factor to be sure
-                design$variables[[x]] <- factor(as.logical(as.numeric(design$variables[[x]])),
+                design$variables[[x]] <- factor(design$variables[[x]],
                                                 levels = c("TRUE", "FALSE"))
 
                 srvyr_design <- srvyr::as_survey_design(design)
